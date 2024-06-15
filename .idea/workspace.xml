@@ -4,41 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="904a7a8e-c257-4d9e-a03c-b7d08513723c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ProjetoIntegradorlll.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/assinatura.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/recibo_4a38b3463c526ae3.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/static/canvas.css" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/static/canvas.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/static/fotos_perfil/default.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/static/fotos_perfil/default.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/static/gerarRecibo.js" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/static/gerarRecibo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/static/salvarAssinatura.js" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/static/salvarAssinatura.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/criarConta.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/criarConta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/editarPerfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/editarPerfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/gerarRecibo.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/gerarRecibo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/listarRecibos.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/listarRecibos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/perfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/registros.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/registros.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/sair.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/sair.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/salvarAssinatura.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/salvarAssinatura.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/PackArquivos/templates/sobre.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/sobre.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoIntegrador/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
-    </list>
+    <list default="true" id="904a7a8e-c257-4d9e-a03c-b7d08513723c" name="Changes" comment="Modificação do projeto" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +35,6 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Python.app.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "modifications",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,36 +47,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gerso\PycharmProjects\ProjetoIntegrador-2024.1\ProjetoIntegradorlll" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="ProjetoIntegradorlll" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.app" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -129,8 +64,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1718482541478</updated>
-      <workItem from="1718482542718" duration="1718000" />
+      <workItem from="1718482542718" duration="2089000" />
     </task>
+    <task id="LOCAL-00001" summary="Modificação do projeto">
+      <option name="closed" value="true" />
+      <created>1718484463780</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718484463780</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +82,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Modificação do projeto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modificação do projeto" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ProjetoIntegradorlll$app.coverage" NAME="app Coverage Results" MODIFIED="1718483732241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
