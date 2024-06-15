@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div>
+    <h1 class="pt-3">Crie sua conta para continuar</h1>
+    <hr>
+        <div class="row d-flex justify-content-center">
+            <form method="POST" action="" class="border m-5 p-5 w-75 p-3 shadow p-3 mb-5 bg-body rounded">
+                {{ formCriarConta.csrf_token }}
+                <legend class=text-center>Criar conta</legend>
+                <fieldset>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                {{ formCriarConta.nome.label(class="form-control-label") }}
+
+                                {% if formCriarConta.nome.errors %}
+                                    {{ formCriarConta.nome(class="form-control is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for erro in formCriarConta.nome.errors %}
+                                            {{ erro }}
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ formCriarConta.nome(class="form-control") }}
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <div class="form-group">
+                                {{ formCriarConta.sobrenome.label(class="form-control-label") }}
+
+                                {% if formCriarConta.sobrenome.errors %}
+                                    {{ formCriarConta.sobrenome(class="form-control is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for erro in formCriarConta.sobrenome.errors %}
+                                            {{ erro }}
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ formCriarConta.sobrenome(class="form-control") }}
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                {{ formCriarConta.nascimento.label(class="form-control-label") }}
+
+                                {% if formCriarConta.nascimento.errors %}
+                                    {{ formCriarConta.nascimento(class="form-control is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for erro in formCriarConta.nascimento.errors %}
+                                            {{ erro }}
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ formCriarConta.nascimento(class="form-control") }}
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <div class="form-group">
+                                {{ formCriarConta.telefone.label(class="form-control-label") }}
+
+                                {% if formCriarConta.telefone.errors %}
+                                    {{ formCriarConta.telefone(class="form-control is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for erro in formCriarConta.telefone.errors %}
+                                            {{ erro }}
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ formCriarConta.telefone(class="form-control") }}
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ formCriarConta.email.label(class="form-control-label") }}
+
+                                {% if formCriarConta.email.errors %}
+                                    {{ formCriarConta.email(class="form-control is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for erro in formCriarConta.email.errors %}
+                                            {{ erro }}
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ formCriarConta.email(class="form-control") }}
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ formCriarConta.confirmar_email.label(class="form-control-label") }}
+
+                                {% if formCriarConta.confirmar_email.errors %}
+                                    {{ formCriarConta.Confirmar_email(class="form-control is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for erro in formCriarConta.confirmar_email.errors %}
+                                            {{ erro }}
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ formCriarConta.confirmar_email(class="form-control") }}
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ formCriarConta.senha.label(class="form-control-label") }}
+
+                                {% if formCriarConta.senha.errors %}
+                                    {{ formCriarConta.senha(class="form-control is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for erro in formCriarConta.senha.errors %}
+                                            {{ erro }}
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ formCriarConta.senha(class="form-control") }}
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ formCriarConta.confirmar_senha.label(class="form-control-label") }}
+
+                                {% if formCriarConta.confirmar_senha.errors %}
+                                    {{ formCriarConta.confirmar_senha(class="form-control is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for erro in formCriarConta.confirmar_senha.errors %}
+                                            {{ erro }}
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ formCriarConta.confirmar_senha(class="form-control") }}
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+                <div class="form-group text-center mt-3">
+                    {{ formCriarConta.submitCriarConta(class="btn btn-outline-primary") }}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
