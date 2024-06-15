@@ -120,7 +120,6 @@ def salvarAssinatura():
 
         # Criar o diretório se não existir
         os.makedirs(directory, exist_ok=True)
-        redirect(url_for('/'))
         return criar_recibo_pdf(path, dadosPDF)
 
     return render_template('salvarAssinatura.html', formGerarRecibo=formGerarRecibo, dadosPDF=dadosPDF)

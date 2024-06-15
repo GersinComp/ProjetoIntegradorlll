@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.body.appendChild(linkDownload);
                 linkDownload.click();
                 document.body.removeChild(linkDownload);
+                window.location.href = ("/")
             } else {
                 alert('Erro ao salvar a assinatura.');
             }
