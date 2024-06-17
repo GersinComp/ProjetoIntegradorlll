@@ -6,12 +6,12 @@
         <div class="row d-flex justify-content-center">
             <form method="POST" action="" class="border m-5 p-5 w-75 p-3 shadow p-3 mb-5 bg-body rounded">
                 {{ formCriarConta.csrf_token }}
-                <legend class=text-center>Criar conta</legend>
+                <legend class=text-center>CRIAR CONTA</legend>
                 <fieldset>
 
                     <div class="row">
                         <div class="col-sm-3">
-                            <div class="form-group">
+                            <div class="form-group mt-2">
                                 {{ formCriarConta.nome.label(class="form-control-label") }}
 
                                 {% if formCriarConta.nome.errors %}
@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="col-sm-9">
-                            <div class="form-group">
+                            <div class="form-group mt-2">
                                 {{ formCriarConta.sobrenome.label(class="form-control-label") }}
 
                                 {% if formCriarConta.sobrenome.errors %}
@@ -49,7 +49,7 @@
 
                     <div class="row">
                         <div class="col-sm-3">
-                            <div class="form-group">
+                            <div class="form-group mt-2">
                                 {{ formCriarConta.nascimento.label(class="form-control-label") }}
 
                                 {% if formCriarConta.nascimento.errors %}
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="col-sm-9">
-                            <div class="form-group">
+                            <div class="form-group mt-2">
                                 {{ formCriarConta.telefone.label(class="form-control-label") }}
 
                                 {% if formCriarConta.telefone.errors %}
@@ -87,7 +87,7 @@
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <div class="form-group">
+                            <div class="form-group mt-2">
                                 {{ formCriarConta.email.label(class="form-control-label") }}
 
                                 {% if formCriarConta.email.errors %}
@@ -105,7 +105,7 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <div class="form-group">
+                            <div class="form-group mt-2">
                                 {{ formCriarConta.confirmar_email.label(class="form-control-label") }}
 
                                 {% if formCriarConta.confirmar_email.errors %}
@@ -125,7 +125,7 @@
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <div class="form-group">
+                            <div class="form-group mt-2">
                                 {{ formCriarConta.senha.label(class="form-control-label") }}
 
                                 {% if formCriarConta.senha.errors %}
@@ -143,7 +143,7 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <div class="form-group">
+                            <div class="form-group mt-2">
                                 {{ formCriarConta.confirmar_senha.label(class="form-control-label") }}
 
                                 {% if formCriarConta.confirmar_senha.errors %}

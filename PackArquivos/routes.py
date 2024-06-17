@@ -38,7 +38,8 @@ def criarConta():
     if formCriarConta.validate_on_submit():
         senhaCrypt = bcrypt.generate_password_hash(formCriarConta.senha.data).decode('utf-8')
         usuario = Usuario(nome=formCriarConta.nome.data, sobrenome=formCriarConta.sobrenome.data,
-                          email=formCriarConta.email.data, senha=senhaCrypt)
+                          nascimento=formCriarConta.nascimento.data, email=formCriarConta.email.data,
+                          telefone=formCriarConta.telefone.data, senha=senhaCrypt)
         db.session.add(usuario)
         db.session.commit()
         login_user(usuario, remember=formCriarConta.senha.data)
@@ -67,7 +68,7 @@ def gerarRecibo():
             'numero': formGerarRecibo.numero.data,
             'valor': formGerarRecibo.valor.data,
             'valorExtenso': formGerarRecibo.valorExtenso.data,
-            'data': formGerarRecibo.data.data.strftime('%d/%m/%Y'),
+            'data': formGerarRecibo.data.data,
             'nome': formGerarRecibo.nome.data,
             'cpf': formGerarRecibo.cpf.data,
             'descricao': formGerarRecibo.descricao.data
@@ -251,8 +252,10 @@ def criar_recibo_pdf(filename, dadosPDF):
 
 
 @app.route('/listarRecibos', methods=['GET', 'POST'])
+@login_required
 def listarRecibos():
-    return render_template('listarRecibos.html')
+    recibos = Recibo.query.all()
+    return render_template('listarRecibos.html', recibos=recibos)
 
 
 @app.route('/perfil')

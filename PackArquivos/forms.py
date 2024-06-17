@@ -1,10 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, DecimalField, PasswordField, SubmitField, BooleanField, TextAreaField, DateField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, DateField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
-from flask_login import current_user
 from PackArquivos.models import *
 from datetime import date
-from random import randint
+
+with app.app_context():
+    recibos = Recibo.query.all()
+proximoRecibo = len(recibos) + 1
 
 
 class LoginForm(FlaskForm):
@@ -33,7 +35,7 @@ class CriarContaForm(FlaskForm):
 
 class GerarReciboForm(FlaskForm):
     empresa = StringField('Empresa', validators=[DataRequired()])
-    numero = StringField('Numero', validators=[DataRequired()], render_kw={'readonly': True, "value": randint(0, 9999)})
+    numero = StringField('Numero', validators=[DataRequired()], render_kw={'readonly': True, "value": proximoRecibo})
     valor = StringField('Valor', validators=[DataRequired()], render_kw={"value": "R$ "})
     valorExtenso = StringField('Valor Ext.', validators=[DataRequired()], render_kw={'readonly': True})
     data = DateField('Data', validators=[DataRequired()], render_kw={"value": date.today()})

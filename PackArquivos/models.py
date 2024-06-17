@@ -19,20 +19,20 @@ def horarioCriado():
 
 class Usuario(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(80), nullable=False)
-    nascimento = db.Column(db.DateTime, nullable=False, default="0001-01-01")
+    nome = db.Column(db.String(45), nullable=False)
     sobrenome = db.Column(db.String(80), nullable=False)
+    nascimento = db.Column(db.DateTime, nullable=False, default="0001-01-01")
     email = db.Column(db.String(120), unique=True, nullable=False)
     telefone = db.Column(db.String(11), nullable=False)
     senha = db.Column(db.String(80), nullable=False)
-    foto_perfil = db.Column(db.String(80), default='/static/fotos_perfil/default.jpg')
+    foto_perfil = db.Column(db.String(80), default='default.jpg')
     recibo = db.relationship('Recibo', backref='usuario', lazy=True)
 
 
 class Recibo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     empresa = db.Column(db.String(80), nullable=False)
-    valor = db.Column(db.Float, nullable=False)
+    valor = db.Column(db.String(80), nullable=False)
     data = db.Column(db.DateTime, nullable=False, default=horarioCriado)
     nome = db.Column(db.String(80), nullable=False)
     cpf = db.Column(db.String(80), nullable=False)
