@@ -2,34 +2,56 @@
 
 {% block table %}
 
-    <div class="mt-2 ">
+    <div>
         <table class="table">
             <thead class="table-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
+                <tr>
+                    <th class="col-sm-1" scope="col">NÚMERO</th>
+                    <th class="col-sm-2" scope="col">EMPRESA</th>
+                    <th class="col-sm-2" scope="col">VALOR</th>
+                    <th class="col-sm-1" scope="col">DATA</th>
+                    <th class="col-sm-1" scope="col">NOME</th>
+                    <th class="col-sm-1" scope="col">CPF</th>
+                    <th class="col-sm-4" scope="col">DESCRIÇÃO</th>
+                </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+
+                {% for recibo in recibos %}
+                    {% if recibo.usuario.id == current_user.id %}
+                        <tr>
+                            <th scope="row">{{ recibo.id }}</th>
+                            <td> {{ recibo.empresa }} </td>
+                            <td> {{ recibo.valor }} </td>
+                            <td> {{ recibo.data.strftime('%d/%m/%Y') }} </td>
+                            <td> {{ recibo.nome }} </td>
+                            <td> {{ recibo.cpf }} </td>
+
+                            <td>
+                                <div class="accordion accordion-flush h-25" id="accordion{{ recibo.id }}">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-heading{{ recibo.id }}">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapse{{ recibo.id }}" aria-expanded="false"
+                                                    aria-controls="flush-collapse{{ recibo.id }}"
+                                                    style="margin: 0; padding: 0;">
+                                                DESCRIÇÃO
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapse{{ recibo.id }}" class="accordion-collapse collapse"
+                                             aria-labelledby="flush-heading{{ recibo.id }}" data-bs-parent="#accordion{{ recibo.id }}">
+                                            <div class="accordion-body">
+                                                {{ recibo.descricao }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+
             </tbody>
         </table>
     </div>
