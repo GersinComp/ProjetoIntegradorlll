@@ -12,6 +12,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter, landscape
 from reportlab.lib.units import inch
 from num2words import num2words
+from PackArquivos.s3_utils import S3_BUCKET, S3_REGION, upload_to_s3
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -68,7 +69,7 @@ def gerarRecibo():
             'numero': formGerarRecibo.numero.data,
             'valor': formGerarRecibo.valor.data,
             'valorExtenso': formGerarRecibo.valorExtenso.data,
-            'data': formGerarRecibo.data.data,
+            'data': formGerarRecibo.data.data.strftime("%d-%m-%Y"),
             'nome': formGerarRecibo.nome.data,
             'cpf': formGerarRecibo.cpf.data,
             'descricao': formGerarRecibo.descricao.data
@@ -165,14 +166,14 @@ def upload_assinatura():
 
         # Chamar a função criar_recibo_pdf para gerar o PDF
         criar_recibo_pdf(filename=path, dadosPDF=dadosPDF)
-
         # Gerar a URL para acessar o PDF
-        pdf_url = url_for('static', filename=f'arquivosPDF/{filename}')
-
-        # Retornar o caminho do arquivo PDF gerado
-        return jsonify(success=True, pdf_path=pdf_url)
-
-    return jsonify(success=False, error='Dados do formulário não encontrados')
+        try:
+            with open(path, 'rb') as f:
+                upload_to_s3(f, filename)
+            pdf_url = f"https://{S3_BUCKET}.s3.{S3_REGION}.amazonaws.com/{filename}"
+            return jsonify(success=True, pdf_path=pdf_url)
+        except Exception as e:
+            return jsonify(success=False, error=str(e))
 
 
 def criar_recibo_pdf(filename, dadosPDF):
@@ -205,7 +206,7 @@ def criar_recibo_pdf(filename, dadosPDF):
 
     # Calculando a posição para o texto "Nº"
     num_recibo_text = f"Nº {dadosPDF['numero']}"
-    num_recibo_width = c.stringWidth(num_recibo_text, "Helvetica", 20)
+    num_recibo_width = c.stringWidth(num_recibo_text, "Helvetica", 30)
     num_recibo_x = width - margin_x - num_recibo_width
     num_recibo_y = height - margin_y - 0.7 * inch
 
