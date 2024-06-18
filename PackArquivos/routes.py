@@ -54,9 +54,9 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/sobre')
-def sobre():
-    return render_template('sobre.html')
+@app.route('/colaboradores')
+def colaboradores():
+    return render_template('colaboradores.html')
 
 
 @app.route('/gerarRecibo', methods=['GET', 'POST'])
@@ -264,13 +264,11 @@ def enviar_recibo(token):
 @app.route('/listarRecibos', methods=['GET', 'POST'])
 @login_required
 def listarRecibos():
-    order = request.args.get('order', 'asc')  # padrão é 'asc'
-    recibos = Recibo.query.all()
-
+    order = request.args.get('order', 'asc')
     if order == 'desc':
-        recibos.sort(reverse=True)
+        recibos = Recibo.query.order_by(Recibo.id.desc()).all()
     else:
-        recibos.sort()
+        recibos = Recibo.query.order_by(Recibo.id.asc()).all()
 
     return render_template('listarRecibos.html', recibos=recibos)
 
