@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
 {% block body %}
-    <p>conteudo</p>
+
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center mt-5">
+            <div class="w-50 mx-auto">
+                <div class="d-flex justify-content-center">
+                    <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="LOGO" class="w-50">
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
