@@ -39,7 +39,7 @@ class Recibo(db.Model):
     nome = db.Column(db.String(80), nullable=False)
     cpf = db.Column(db.String(11), nullable=False)
     descricao = db.Column(db.Text(), nullable=False)
-    token = db.Column(db.String(8), nullable=False, default=secrets.token_hex(8))
+    token = db.Column(db.String(8), nullable=False, default=secrets.token_hex(4))
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
 
 
