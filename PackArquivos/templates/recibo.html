@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div>
+        <h1 class="pt-3">Visualizar recibo</h1>
+        <hr>
+        <div class="row d-flex justify-content-center">
+            <form method="POST" action="" id="formularioRecibo" class="border m-5 p-5 w-75 p-3 shadow p-3 mb-5 bg-body rounded">
+                {{ formGerarRecibo.csrf_token }}
+                <div class="row">
+                    <div class="col-md-9">
+                        <legend class="fs-2">Recibo</legend>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                {{ formGerarRecibo.numero.label(class="form-control-label mt-1 fs-5") }}
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    {{ recibo.id }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <fieldset>
+                    <div class="form-group row mt-3">
+                        <div class="col-sm-1 mt-2">
+                            {{ formGerarRecibo.empresa.label(class="form-control-label") }}
+                        </div>
+                        <div class="col-sm-11">
+                            {{ recibo.empresa }}
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <div class="col-sm-1 mt-2">
+                            {{ formGerarRecibo.valor.label(class="form-control-label") }}
+                        </div>
+                        <div class="col-sm-2">
+                            {{ recibo.valor }}
+                        </div>
+
+                        <div class="col-sm-2 mt-2">
+                            {{ formGerarRecibo.valorExtenso.label(class="form-control-label") }}
+                        </div>
+                        <div class="col-sm-7">
+                            {{ recibo.valorExtenso }}
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <div class="col-sm-1 mt-2">
+                            {{ formGerarRecibo.data.label(class="form-control-label") }}
+                        </div>
+                        <div class="col-sm-11">
+                            {{ recibo.data }}
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <div class="col-sm-1 mt-2">
+                            {{ formGerarRecibo.nome.label(class="form-control-label") }}
+                        </div>
+                        <div class="col-sm-6">
+                            {{ recibo.nome }}
+                        </div>
+
+                        <div class="col-sm-1 mt-2">
+                            {{ formGerarRecibo.cpf.label(class="form-control-label") }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ recibo.cpf }}
+                        </div>
+
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="text-center mb-1">
+                            {{ formGerarRecibo.descricao.label(class="form-control-label text-center") }}
+                        </div>
+                        {{ recibo.descricao }}
+                    </div>
+                </fieldset>
+                <div class="row d-flex">
+                    <div class="col-sm-6 mt-5 pt-4">
+                        <a href="{{ url_for('listarRecibos') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-arrow-return-left" style="width: 3rem; height: 2rem;"
+                                 viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="col-sm-6 mt-5 pt-4" style="text-align: end">
+                        <button class="btn btn-outline-success" type="button">
+
+                            <a href="{{ url_for('static', filename=url_download) }}" download="recibo.pdf">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-download" viewBox="0 0 16 16"> style="width: 3rem; height: 2rem;"
+                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                </svg>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='gerarRecibo.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#valor').on('input', function() {
+                let valor = $(this).val();
+                $.ajax({
+                    url: '/valor_extenso',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({valor: valor}),
+                    success: function(response) {
+                        $('#valorExtenso').val(response.valorExtenso);
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

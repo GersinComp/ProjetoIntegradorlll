@@ -3,7 +3,7 @@ import base64
 import os
 from urllib import request
 from PIL import Image
-from flask import render_template, flash, redirect, request, url_for, jsonify, session, send_file
+from flask import render_template, flash, redirect, request, url_for, jsonify, session, send_from_directory
 from flask_login import login_user, logout_user, current_user, login_required
 from PackArquivos import bcrypt
 from PackArquivos.forms import LoginForm, CriarContaForm, GerarReciboForm
@@ -69,17 +69,11 @@ def gerarRecibo():
             'numero': formGerarRecibo.numero.data,
             'valor': formGerarRecibo.valor.data,
             'valorExtenso': formGerarRecibo.valorExtenso.data,
-            'data': formGerarRecibo.data.data.strftime("%d-%m-%Y"),
+            'data': formGerarRecibo.data.data.strftime("%Y-%m-%d"),
             'nome': formGerarRecibo.nome.data,
             'cpf': formGerarRecibo.cpf.data,
             'descricao': formGerarRecibo.descricao.data
         }
-        recibo = Recibo(empresa=formGerarRecibo.empresa.data, valor=formGerarRecibo.valorExtenso.data,
-                        data=formGerarRecibo.data.data, nome=formGerarRecibo.nome.data,
-                        cpf=formGerarRecibo.cpf.data, descricao=formGerarRecibo.descricao.data,
-                        usuario=current_user)
-        db.session.add(recibo)
-        db.session.commit()
         flash("Recibo gerado com sucesso!", 'alert-success')
         return redirect(url_for('salvarAssinatura'))
     elif request.method == 'GET':
@@ -123,7 +117,6 @@ def salvarAssinatura():
         # Criar o diretório se não existir
         os.makedirs(directory, exist_ok=True)
         return criar_recibo_pdf(path, dadosPDF)
-
     return render_template('salvarAssinatura.html', formGerarRecibo=formGerarRecibo, dadosPDF=dadosPDF)
 
 
@@ -154,12 +147,12 @@ def upload_assinatura():
 
     # Chame a função criar_recibo_pdf após salvar a assinatura
     dadosPDF = session.get('dadosPDF')
-
     if dadosPDF:
         # Defina o caminho e o nome do arquivo PDF
         directory = './PackArquivos/static/arquivosPDF'
-        tokenPDF = secrets.token_hex(8)
-        filename = f"recibo_{tokenPDF}.pdf"
+        tokenPDF = secrets.token_hex(4)
+        nome = current_user.nome + '_' + str((1 + len(Recibo.query.all()))) + '_'
+        filename = f"recibo_{nome}{tokenPDF}.pdf"
         path = os.path.join(directory, filename)
 
         # Criar o diretório se não existir
@@ -167,12 +160,17 @@ def upload_assinatura():
 
         # Chamar a função criar_recibo_pdf para gerar o PDF
         criar_recibo_pdf(filename=path, dadosPDF=dadosPDF)
+        enviar_recibo(tokenPDF)
+
         # Gerar a URL para acessar o PDF
         try:
             with open(path, 'rb') as f:
                 upload_to_s3(f, filename)
-            pdf_url = f"https://{S3_BUCKET}.s3.{S3_REGION}.amazonaws.com/{filename}"
-            return jsonify(success=True, pdf_path=pdf_url)
+
+            # Gerar a URL para acessar o PDF
+            pdf_url_bucket = f"https://{S3_BUCKET}.s3.{S3_REGION}.amazonaws.com/{filename}"
+
+            return jsonify(success=True, pdf_path=pdf_url_bucket)
         except Exception as e:
             return jsonify(success=False, error=str(e))
 
@@ -253,11 +251,35 @@ def criar_recibo_pdf(filename, dadosPDF):
     c.save()
 
 
+def enviar_recibo(token):
+    dadosPDF = session.get('dadosPDF')
+    recibo = Recibo(empresa=dadosPDF['empresa'], valor=dadosPDF['valorExtenso'],
+                    data=dadosPDF['data'], nome=dadosPDF['nome'],
+                    cpf=dadosPDF['cpf'], descricao=dadosPDF['descricao'],
+                    token=token, usuario=current_user)
+    db.session.add(recibo)
+    db.session.commit()
+
+
 @app.route('/listarRecibos', methods=['GET', 'POST'])
 @login_required
 def listarRecibos():
     recibos = Recibo.query.all()
     return render_template('listarRecibos.html', recibos=recibos)
+
+
+@app.route('/listarRecibo/<recibo_id>', methods=['GET', 'POST'])
+@login_required
+def listarRecibo(recibo_id):
+    recibo = Recibo.query.get(recibo_id)
+    formRecibo = GerarReciboForm()
+    url_download = ('arquivosPDF/recibo_' + current_user.nome + '_' +
+                    str(recibo.id) + '_' + str(recibo.token) + '.pdf')
+    if recibo.usuario != current_user:
+        flash('Você não tem permissão para acessar este recibo!', 'alert-danger')
+        return redirect(url_for('listarRecibos'))
+
+    return render_template('recibo.html', recibo=recibo, formGerarRecibo=formRecibo, url_download=url_download)
 
 
 @app.route('/perfil')
