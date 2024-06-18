@@ -69,7 +69,7 @@ def gerarRecibo():
             'numero': formGerarRecibo.numero.data,
             'valor': formGerarRecibo.valor.data,
             'valorExtenso': formGerarRecibo.valorExtenso.data,
-            'data': formGerarRecibo.data.data.strftime("%d-%m-%Y"),
+            'data': formGerarRecibo.data.data.strftime("%Y-%m-%d"),
             'nome': formGerarRecibo.nome.data,
             'cpf': formGerarRecibo.cpf.data,
             'descricao': formGerarRecibo.descricao.data
