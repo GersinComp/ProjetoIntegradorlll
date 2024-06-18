@@ -154,6 +154,7 @@ def upload_assinatura():
 
     # Chame a função criar_recibo_pdf após salvar a assinatura
     dadosPDF = session.get('dadosPDF')
+
     if dadosPDF:
         # Defina o caminho e o nome do arquivo PDF
         directory = './PackArquivos/static/arquivosPDF'

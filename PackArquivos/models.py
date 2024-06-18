@@ -14,7 +14,7 @@ def horarioCriado():
     brasilia_timezone = timezone('America/Sao_Paulo')
 
     # Obtém a data e hora atual em Brasília
-    return datetime.now(brasilia_timezone)
+    return datetime.now(brasilia_timezone).strftime('%Y-%m-%d')
 
 
 class Usuario(db.Model, UserMixin):
@@ -33,10 +33,10 @@ class Recibo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     empresa = db.Column(db.String(80), nullable=False)
     valor = db.Column(db.String(80), nullable=False)
-    data = db.Column(db.DateTime, nullable=False, default=horarioCriado)
+    data = db.Column(db.Date, nullable=False, default=horarioCriado)
     nome = db.Column(db.String(80), nullable=False)
-    cpf = db.Column(db.String(80), nullable=False)
-    descricao = db.Column(db.String(80), nullable=False)
+    cpf = db.Column(db.String(11), nullable=False)
+    descricao = db.Column(db.Text(), nullable=False)
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
 
 

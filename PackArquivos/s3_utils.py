@@ -4,10 +4,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-S3_BUCKET = 'recibos-projeto'    # os.getenv('S3_BUCKET')
-S3_REGION = 'us-east-2'    # os.getenv('S3_REGION')
-S3_ACCESS_KEY = 'AKIA6GBMFJPA2MBAIYV4'    # os.getenv('S3_ACCESS_KEY')
-S3_SECRET_KEY = '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'    # os.getenv('S3_SECRET_KEY')
+S3_BUCKET = os.getenv('S3_BUCKET')
+S3_REGION = os.getenv('S3_REGION')
+S3_ACCESS_KEY = os.getenv('S3_ACCESS_KEY')
+S3_SECRET_KEY = os.getenv('S3_SECRET_KEY')
 
 if not all([S3_BUCKET, S3_REGION, S3_ACCESS_KEY, S3_SECRET_KEY]):
     raise EnvironmentError("Uma ou mais variáveis de ambiente AWS não foram carregadas corretamente.")
