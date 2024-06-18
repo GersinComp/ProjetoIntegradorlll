@@ -23,7 +23,7 @@ class Usuario(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(45), nullable=False)
     sobrenome = db.Column(db.String(80), nullable=False)
-    nascimento = db.Column(db.DateTime, nullable=False, default="0001-01-01")
+    nascimento = db.Column(db.Date, nullable=False, default="0001-01-01")
     email = db.Column(db.String(120), unique=True, nullable=False)
     telefone = db.Column(db.String(11), nullable=False)
     senha = db.Column(db.String(80), nullable=False)
