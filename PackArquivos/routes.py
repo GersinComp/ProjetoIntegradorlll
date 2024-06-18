@@ -264,7 +264,14 @@ def enviar_recibo(token):
 @app.route('/listarRecibos', methods=['GET', 'POST'])
 @login_required
 def listarRecibos():
+    order = request.args.get('order', 'asc')  # padrão é 'asc'
     recibos = Recibo.query.all()
+
+    if order == 'desc':
+        recibos.sort(reverse=True)
+    else:
+        recibos.sort()
+
     return render_template('listarRecibos.html', recibos=recibos)
 
 
