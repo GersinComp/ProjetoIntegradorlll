@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="904a7a8e-c257-4d9e-a03c-b7d08513723c" name="Changes" comment="Modificação do projeto">
-      <change beforePath="$PROJECT_DIR$/PackArquivos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/recibo_Gerson_1_5cfe18a0.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/recibo_Gerson_2_74cee6b0.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/recibo_Gerson_30_13a9a4a89ecedddd.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/recibo_Gerson_31_7f54d0c7257d9441.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/recibo_Gerson_32_a1c376a4.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/recibo_Gerson_32_b2187e97fb0ae465.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/recibo_Gerson_32_d93ceab3d07696e2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/recibo_Gerson_32_f6f3f8b66b19a5c4.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/recibo_Gerson_3_e4049b1c.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PackArquivos/static/arquivosPDF/recibo_Gerson_4_acf58e85.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PackArquivos/templates/listarRecibos.html" beforeDir="false" afterPath="$PROJECT_DIR$/PackArquivos/templates/listarRecibos.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,8 +107,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.models" />
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.models" />
       </list>
     </recent_temporary>
   </component>
@@ -138,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718482541478</updated>
       <workItem from="1718482542718" duration="2089000" />
-      <workItem from="1718745831912" duration="4398000" />
+      <workItem from="1718745831912" duration="4800000" />
     </task>
     <task id="LOCAL-00001" summary="Modificação do projeto">
       <option name="closed" value="true" />
@@ -168,7 +159,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Modificação do projeto" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ProjetoIntegradorlll$app.coverage" NAME="app Coverage Results" MODIFIED="1718748183382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ProjetoIntegradorlll$app.coverage" NAME="app Coverage Results" MODIFIED="1718750671614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ProjetoIntegradorlll$models.coverage" NAME="models Coverage Results" MODIFIED="1718750576932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PackArquivos" />
   </component>
 </project>
