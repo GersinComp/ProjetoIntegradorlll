@@ -1,5 +1,4 @@
 import secrets
-import uuid
 from datetime import datetime
 from pytz import timezone
 from PackArquivos import app, db, login_manager
